@@ -41,7 +41,7 @@ public class PlantRoot : MonoBehaviour
         Vector3 dirSP = point - start;
         Vector3 dirSE = end - start;
 
-        float magnitude = dirSE.magnitude;
+        float magnitude = dirSE.sqrMagnitude;
         float dirDot = Vector3.Dot(dirSP, dirSE);
         float dist = dirDot / magnitude;
 
