@@ -1,0 +1,23 @@
+phase 1: daylight
+ - plant has limited energy
+ - spread roots using energy
+ - robots will attempt to harm the roots if they get too close
+ - collect extra energy from water and sun crystals and all that good stuff
+
+phase 2: nightlight
+ - plant uproots
+ - start tearing apart the robots
+ - spend energy on ways to do more damage
+ - clear the way to get to more water and sun
+ - get back to the roots before the sun comes and you die
+
+
+todo:
+ - root base
+ - extend roots out from base where the player clicks
+ - limited money
+ - navigate the root network by clicking along the roots
+ - set waypoints by ctrl+#
+ - move camera to waypoints with #
+ - sun: generate energy at start of daylight phase, never run out
+ - water: soak up water to grow, runs out
