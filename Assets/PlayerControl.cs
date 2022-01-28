@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
     Camera cam;
     public LayerMask hittable;
+    public PlantRoot plRt;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class PlayerControl : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, hittable))
             {
-                Debug.Log("hit ground at "+hit.point);
+                plRt.CreateObject(Vector3.zero, hit.point);
             }
         }
     }
