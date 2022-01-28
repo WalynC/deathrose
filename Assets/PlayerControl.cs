@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, hittable))
             {
-                plRt.CreateObject(Vector3.zero, hit.point);
+                plRt.CreateNewRoot(hit.point);
             }
         }
     }
