@@ -25,7 +25,7 @@ public class PlayerControl : MonoBehaviour
                 plRt.previewStart - groundHit.point, 
                 plRt.preview.transform.localScale.x, 
                 wall);
-            if (PlayerMoney.instance.CanAfford(plRt.previewPrice) && !collision)
+            if (PlayerMoney.instance.CanAfford(plRt.previewPrice) && plRt.previewPrice > 10 && !collision)
             {
                 plRt.preview.material = canAfford;
                 if (Input.GetMouseButtonDown(0)) //plant root
