@@ -15,8 +15,8 @@ phase 2: nightlight
 todo:
  - root base
  - extend roots out from base where the player clicks
+ - have player click on root to determine where the extension comes from
  - limited money
- - navigate the root network by clicking along the roots
  - set waypoints by ctrl+#
  - move camera to waypoints with #
  - sun: generate energy at start of daylight phase, never run out
