@@ -15,13 +15,18 @@ public class PlayerControl : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) //plant root
+        RaycastHit groundHit;
+        if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out groundHit, Mathf.Infinity, ground))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, ground))
+            plRt.PositionObject(plRt.preview, plRt.GetClosestRootPoint(groundHit.point), groundHit.point);
+            plRt.preview.SetActive(true);
+            if (Input.GetMouseButtonDown(0)) //plant root
             {
-                plRt.CreateNewRoot(hit.point);
+                plRt.CreateNewRoot(groundHit.point);
             }
+        } else
+        {
+            plRt.preview.SetActive(false);
         }
         if (Input.GetMouseButtonDown(1))
         {
