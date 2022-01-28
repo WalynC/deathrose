@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, roots))
             {
-                Debug.Log("Move camera to " + hit.point);
+                CameraController.instance.transform.position = hit.point;
             }
         }
     }
