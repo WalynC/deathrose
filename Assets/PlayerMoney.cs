@@ -16,6 +16,7 @@ public class PlayerMoney : MonoBehaviour
     void Start()
     {
         instance = this;
+        moneyChangedEvent?.Invoke(moneyCount);
     }
 
     public bool TryPurchase(int cost)
