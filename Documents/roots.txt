@@ -1,0 +1,11 @@
+Root parent;
+List<Root> children;
+float distanceFromParentStart;
+float distance;
+Vector3 start, end;
+GameObject visual;
+
+Damage roots:
+ - if distance > distance from parent start of closest child root, can do damage
+ - reduce root length
+ - if root length <= 0, tell parent to remove root from children, and destroy the root
