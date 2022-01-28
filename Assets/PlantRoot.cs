@@ -8,6 +8,7 @@ public class PlantRoot : MonoBehaviour
     public List<Root> roots = new List<Root>();
     public MeshRenderer preview;
     public int previewPrice = 0;
+    public Vector3 previewStart;
 
     public GameObject CreateObject()
     {
@@ -24,9 +25,9 @@ public class PlantRoot : MonoBehaviour
 
     public void UpdatePreview(Vector3 end)
     {
-        Vector3 start = GetClosestRootPoint(end);
-        PositionObject(preview.gameObject, start, end);
-        previewPrice = (int)(Vector3.Distance(start, end) * 10);
+        previewStart = GetClosestRootPoint(end);
+        PositionObject(preview.gameObject, previewStart, end);
+        previewPrice = (int)(Vector3.Distance(previewStart, end) * 10);
     }
 
     public Vector3 GetClosestRootPoint(Vector3 end)
