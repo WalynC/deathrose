@@ -33,10 +33,16 @@ public class PlantRoot : MonoBehaviour
                 parent = chRoot;
             }
         }
-        GameObject visual = CreateObject(start, end);
-        float distAlong = parent != null ? dist / parent.distance : 0;
-        Root root = new Root(start, end, parent, distAlong, visual);
-        roots.Add(root);
+        int price = (int)(dist * 10);
+        if (PlayerMoney.instance.TryPurchase(price))
+        {
+            GameObject visual = CreateObject(start, end);
+            float distAlong = parent != null ? dist / parent.distance : 0;
+            Root root = new Root(start, end, parent, distAlong, visual);
+            roots.Add(root);
+            PlayerMoney.instance.ChangeMoneyCount(-price);
+        }
+        else Debug.Log("Cannot afford");
     }
 
     //found on https://stackoverflow.com/questions/3120357/get-closest-point-to-a-line

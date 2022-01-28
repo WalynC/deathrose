@@ -838,6 +838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1439198746}
   - component: {fileID: 1439198745}
+  - component: {fileID: 1439198747}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -878,3 +879,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439198747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439198744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4592c74c8ff48e54ab891588d55fc32c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  moneyCount: 1000
