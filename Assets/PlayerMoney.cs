@@ -19,7 +19,7 @@ public class PlayerMoney : MonoBehaviour
         moneyChangedEvent?.Invoke(moneyCount);
     }
 
-    public bool TryPurchase(int cost)
+    public bool CanAfford(int cost)
     {
         return cost <= moneyCount;
     }

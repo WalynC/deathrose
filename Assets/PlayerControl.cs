@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
     Camera cam;
     public LayerMask ground, roots;
     public PlantRoot plRt;
+    public Material canAfford, noAfford;
 
     private void Start()
     {
@@ -18,15 +19,23 @@ public class PlayerControl : MonoBehaviour
         RaycastHit groundHit;
         if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out groundHit, Mathf.Infinity, ground))
         {
-            plRt.PositionObject(plRt.preview, plRt.GetClosestRootPoint(groundHit.point), groundHit.point);
-            plRt.preview.SetActive(true);
-            if (Input.GetMouseButtonDown(0)) //plant root
+            plRt.UpdatePreview(groundHit.point);
+            plRt.preview.gameObject.SetActive(true);
+            if (PlayerMoney.instance.CanAfford(plRt.previewPrice))
             {
-                plRt.CreateNewRoot(groundHit.point);
+                plRt.preview.material = canAfford;
+                if (Input.GetMouseButtonDown(0)) //plant root
+                {
+                    plRt.CreateNewRoot(groundHit.point);
+                }
+            } else
+            {
+                plRt.preview.material = noAfford;
             }
         } else
         {
-            plRt.preview.SetActive(false);
+            plRt.preview.gameObject.SetActive(false);
+            plRt.previewPrice = int.MaxValue;
         }
         if (Input.GetMouseButtonDown(1))
         {

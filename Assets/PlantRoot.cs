@@ -6,7 +6,8 @@ public class PlantRoot : MonoBehaviour
 {
     public GameObject prefab;
     public List<Root> roots = new List<Root>();
-    public GameObject preview;
+    public MeshRenderer preview;
+    public int previewPrice = 0;
 
     public GameObject CreateObject()
     {
@@ -19,6 +20,13 @@ public class PlantRoot : MonoBehaviour
         obj.transform.position = (start + end) / 2;
         obj.transform.right = end - start;
         obj.transform.localScale = new Vector3(Vector3.Distance(start, end), 1, 1);
+    }
+
+    public void UpdatePreview(Vector3 end)
+    {
+        Vector3 start = GetClosestRootPoint(end);
+        PositionObject(preview.gameObject, start, end);
+        previewPrice = (int)(Vector3.Distance(start, end) * 10);
     }
 
     public Vector3 GetClosestRootPoint(Vector3 end)
@@ -55,17 +63,12 @@ public class PlantRoot : MonoBehaviour
                 parent = chRoot;
             }
         }
-        int price = (int)(dist * 10);
-        if (PlayerMoney.instance.TryPurchase(price))
-        {
-            GameObject visual = CreateObject();
-            PositionObject(visual, start, end);
-            float distAlong = parent != null ? dist / parent.distance : 0;
-            Root root = new Root(start, end, parent, distAlong, visual);
-            roots.Add(root);
-            PlayerMoney.instance.ChangeMoneyCount(-price);
-        }
-        else Debug.Log("Cannot afford");
+        GameObject visual = CreateObject();
+        PositionObject(visual, start, end);
+        float distAlong = parent != null ? dist / parent.distance : 0;
+        Root root = new Root(start, end, parent, distAlong, visual);
+        roots.Add(root);
+        PlayerMoney.instance.ChangeMoneyCount(-previewPrice);
     }
 
     //found on https://stackoverflow.com/questions/3120357/get-closest-point-to-a-line
