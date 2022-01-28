@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     Camera cam;
-    public LayerMask ground, roots;
+    public LayerMask ground, roots, wall;
     public PlantRoot plRt;
     public Material canAfford, noAfford;
 
@@ -21,7 +21,11 @@ public class PlayerControl : MonoBehaviour
         {
             plRt.UpdatePreview(groundHit.point);
             plRt.preview.gameObject.SetActive(true);
-            if (PlayerMoney.instance.CanAfford(plRt.previewPrice))
+            bool collision = Physics.Raycast(groundHit.point, 
+                plRt.previewStart - groundHit.point, 
+                plRt.preview.transform.localScale.x, 
+                wall);
+            if (PlayerMoney.instance.CanAfford(plRt.previewPrice) && !collision)
             {
                 plRt.preview.material = canAfford;
                 if (Input.GetMouseButtonDown(0)) //plant root
