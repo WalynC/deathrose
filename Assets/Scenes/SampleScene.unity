@@ -906,7 +906,7 @@ PrefabInstance:
     - target: {fileID: 3277621446861709993, guid: fd92fd1eaf401ab4082dcb4c7b2d9d49,
         type: 3}
       propertyPath: m_Name
-      value: RootVisual
+      value: preview
       objectReference: {fileID: 0}
     - target: {fileID: 3277621446861709997, guid: fd92fd1eaf401ab4082dcb4c7b2d9d49,
         type: 3}
