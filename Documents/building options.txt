@@ -1,0 +1,5 @@
+Decouple player control from building previews/verification
+
+Building gets player pointer info every frame and determines where building can occur
+
+If player clicks, do the building
