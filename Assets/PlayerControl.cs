@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    Camera cam;
     public LayerMask ground, roots, wall;
     public Material canAfford, noAfford;
-
-    private void Start()
-    {
-        cam = Camera.main;
-    }
 
     private void Update()
     {
         RaycastHit groundHit;
-        if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out groundHit, Mathf.Infinity, ground))
+        if (Physics.Raycast(CameraController.cam.ScreenPointToRay(Input.mousePosition), out groundHit, Mathf.Infinity, ground))
         {
             PlantRoot.instance.UpdatePreview(groundHit.point);
             PlantRoot.instance.preview.gameObject.SetActive(true);
@@ -44,7 +38,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
-            if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, roots))
+            if (Physics.Raycast(CameraController.cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, roots))
             {
                 CameraController.instance.transform.position = hit.point;
             }
