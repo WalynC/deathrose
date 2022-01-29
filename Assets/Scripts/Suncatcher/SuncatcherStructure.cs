@@ -5,7 +5,7 @@ using UnityEngine;
 public class SuncatcherStructure : Structure
 {
     public Root parent;
-    int health = 10;
+    int health = 3;
 
     public override void DealDamage(Vector3 vec)
     {

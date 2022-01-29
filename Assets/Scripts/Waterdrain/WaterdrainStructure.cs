@@ -6,7 +6,7 @@ public class WaterdrainStructure : Structure
 {
     public Root parent;
     public List<Water> waters = new List<Water>();
-    int health = 10;
+    int health = 3;
 
     public override void DealDamage(Vector3 vec)
     {
