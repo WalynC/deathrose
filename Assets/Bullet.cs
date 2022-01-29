@@ -6,11 +6,13 @@ public class Bullet : MonoBehaviour
 {
     public IEnemyTarget target;
     public BulletPool pool;
+    public TrailRenderer trail;
     float dist = 0f;
     Vector3 startPos, aimPos, dir;
 
     public void Setup(IEnemyTarget t, Vector3 a, BulletPool p)
     {
+        trail.Clear();
         target = t;
         aimPos = a;
         pool = p;
