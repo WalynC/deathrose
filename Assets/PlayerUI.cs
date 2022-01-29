@@ -19,10 +19,10 @@ public class PlayerUI : MonoBehaviour
         money.text = count.ToString();
     }
 
-    public void UpdateCostPreview(bool active)
+    public void UpdateCostPreview(bool active, int amount)
     {
         moneyPreview.gameObject.SetActive(active);
         moneyPreview.transform.position = Input.mousePosition;
-        moneyPreview.text = PlantRoot.instance.previewPrice.ToString();
+        moneyPreview.text = amount.ToString();
     }
 }
