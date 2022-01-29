@@ -11,6 +11,7 @@ public class GameState : MonoBehaviour
 
     public void DaytimeBegin()
     {
+        foreach (Structure str in Structure.structures) str.Update();
         day.SetActive(true);
         night.SetActive(false);
         Vector3 plantPos = RootNetwork.instance.GetClosestRootPoint(rose.position);

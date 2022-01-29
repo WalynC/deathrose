@@ -47,7 +47,7 @@ public class DaytimeControl : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (Structure str in Structure.structures) str.Update();
+            GameState.instance.NighttimeBegin();
         }
     }
 }
