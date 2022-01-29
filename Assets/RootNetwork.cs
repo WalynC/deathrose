@@ -51,14 +51,13 @@ public class RootNetwork : MonoBehaviour
         float dist = end.magnitude;
         for (int i = 0; i < roots.Count; ++i)
         {
-            Root chRoot = roots[i];
             Vector3 challenge = ClosestPointOnLineSegment(roots[i].start, roots[i].end, end);
             float challengeDist = Vector3.Distance(challenge, end);
             if (challengeDist < dist)
             {
                 dist = challengeDist;
                 start = challenge;
-                parent = chRoot;
+                parent = roots[i];
             }
         }
         GameObject visual = CreateObject();
