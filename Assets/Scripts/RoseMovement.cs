@@ -25,6 +25,6 @@ public class RoseMovement : MonoBehaviour
         float speed = 10f;
         if (hitByBulletTimer > 0f) speed /= 2f;
         hitByBulletTimer -= Time.deltaTime;
-        controller.Move(new Vector3(input.lateral.x, 0, input.lateral.y) * speed * Time.deltaTime);
+        controller.Move(new Vector3(input.lateral.x, 0, input.lateral.z) * speed * Time.deltaTime);
     }
 }

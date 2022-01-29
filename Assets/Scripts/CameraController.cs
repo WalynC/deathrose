@@ -13,10 +13,18 @@ public class CameraController : MonoBehaviour
         }
     }
     public static Camera cam;
-    // Start is called before the first frame update
+    float rot = 0f;
+
     void Start()
     {
         cam = Camera.main;
         _inst = this;   
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.E)) rot++;
+        if (Input.GetKey(KeyCode.Q)) rot--;
+        transform.eulerAngles = new Vector3(0, rot, 0);
     }
 }

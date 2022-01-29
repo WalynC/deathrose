@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class NightControl : MonoBehaviour
 {
-    public Vector2 lateral = Vector2.zero;
+    public Vector3 lateral = Vector3.zero;
     public BulletPool pool;
     public LayerMask targetables;
 
     void Update()
     {
-        lateral = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        RoseMovement.instance.transform.eulerAngles = CameraController.instance.transform.eulerAngles;
+        lateral = 
+            RoseMovement.instance.transform.right * Input.GetAxis("Horizontal")+
+            RoseMovement.instance.transform.forward * Input.GetAxis("Vertical"); 
         CameraController.instance.transform.position = RoseMovement.instance.transform.position;
         if (Input.GetKeyDown(KeyCode.X))
         {
