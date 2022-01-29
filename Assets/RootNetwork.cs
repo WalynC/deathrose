@@ -44,6 +44,25 @@ public class RootNetwork : MonoBehaviour
         return start;
     }
 
+    public Vector3 GetClosestRootPoint(Vector3 end, out Root root)
+    {
+        Vector3 start = Vector3.zero;
+        float dist = end.magnitude;
+        root = null;
+        for (int i = 0; i < roots.Count; ++i)
+        {
+            Vector3 challenge = ClosestPointOnLineSegment(roots[i].start, roots[i].end, end);
+            float challengeDist = Vector3.Distance(challenge, end);
+            if (challengeDist < dist)
+            {
+                root = roots[i];
+                dist = challengeDist;
+                start = challenge;
+            }
+        }
+        return start;
+    }
+
     public void CreateNewRoot(Vector3 end)
     {
         Root parent = null;
