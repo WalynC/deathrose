@@ -13,11 +13,17 @@ phase 2: nightlight
 
 
 todo:
- - root base
- - extend roots out from base where the player clicks
- - have player click on root to determine where the extension comes from
- - limited money
- - set waypoints by ctrl+#
- - move camera to waypoints with #
+x - root base
+x - extend roots out from base where the player clicks
+x - limited money
+x - preview attempted root purchase
  - sun: generate energy at start of daylight phase, never run out
- - water: soak up water to grow, runs out
+x- water: soak up water to grow, runs out
+ - enemies appearing at night to attack the roots
+ - roots take damage
+ - enemies take damage
+ - automatically change day/night
+ - win condition and state
+ - lose state
+ - main menu
+ - complete level

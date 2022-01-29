@@ -1,0 +1,12 @@
+enemies appear every night in waves
+their locations are telegraphed and preset
+
+enemies that are remaining will fire rockets at the seed
+
+enemies dont move
+
+rose shoots bullets
+
+enemies shoot bullets at nearby vulnerable roots and structures
+
+rose gets slowed down when hit by bullets, and when too far away from roots

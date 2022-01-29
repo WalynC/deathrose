@@ -1,0 +1,7 @@
+water: drains water
+
+sun: absorbs sun
+
+bark: takes a lot of damage
+
+boost: speeds up rose when nearby
