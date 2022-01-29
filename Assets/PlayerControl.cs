@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public LayerMask ground, roots, wall;
-    public Material canAfford, noAfford;
+    public LayerMask roots;
     public Building currentBuilding;
 
     private void Update()
