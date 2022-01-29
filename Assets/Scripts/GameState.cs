@@ -12,6 +12,8 @@ public class GameState : MonoBehaviour
     int seedHealth = 10;
     public TextMeshProUGUI healthText;
 
+    bool gameOver = false;
+
     public static bool daytime = true;
 
     private void Start()
@@ -45,6 +47,8 @@ public class GameState : MonoBehaviour
 
     public void Lose(string str)
     {
+        if (gameOver) return;
+        gameOver = true;
         LoseCanvas.instance.ChangeText(str);
         day.SetActive(false);
         night.SetActive(false);
@@ -54,6 +58,8 @@ public class GameState : MonoBehaviour
 
     public void Win()
     {
+        if (gameOver) return;
+        gameOver = true;
         day.SetActive(false);
         night.SetActive(false);
         both.SetActive(false);
