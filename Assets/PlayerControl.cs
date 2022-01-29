@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public LayerMask roots;
+    public Transform buildContainer;
+    int index;
     public Building currentBuilding;
 
     private void Update()
@@ -21,6 +23,22 @@ public class PlayerControl : MonoBehaviour
             {
                 CameraController.instance.transform.position = hit.point;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            currentBuilding.Disable();
+            index--;
+            if (index < 0) index = buildContainer.childCount - 1;
+            currentBuilding = buildContainer.GetChild(index).GetComponent<Building>();
+            PlayerUI.instance.UpdateBuildingName(currentBuilding.name);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            currentBuilding.Disable();
+            index++;
+            if (index >= buildContainer.childCount) index = 0;
+            currentBuilding = buildContainer.GetChild(index).GetComponent<Building>();
+            PlayerUI.instance.UpdateBuildingName(currentBuilding.name);
         }
     }
 }
