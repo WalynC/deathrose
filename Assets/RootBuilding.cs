@@ -11,6 +11,7 @@ public class RootBuilding : Building
 
     public override void Build()
     {
+        if (!buildable) return;
         PlantRoot.instance.CreateNewRoot(position);
         PlayerMoney.instance.ChangeMoneyCount(-price);
     }
