@@ -43,7 +43,6 @@ public class EnemyTargeting : MonoBehaviour
             GameObject obj = EnemyManager.instance.pool.GetObject();
             Bullet bull = obj.GetComponent<Bullet>();
             obj.transform.position = transform.position;
-            Debug.DrawRay(transform.position, hitPt - transform.position);
             bull.Setup(root, hitPt, EnemyManager.instance.pool);
             return;
         }
