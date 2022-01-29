@@ -29,6 +29,6 @@ public class GameState : MonoBehaviour
     {
         day.SetActive(false);
         night.SetActive(true);
-        rose.position = seed.position;
+        RoseMovement.instance.controller.Move(seed.position-rose.position);
     }
 }
