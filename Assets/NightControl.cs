@@ -10,5 +10,6 @@ public class NightControl : MonoBehaviour
     {
         lateral = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (Input.GetKeyDown(KeyCode.Space)) GameState.instance.DaytimeBegin();
+        CameraController.instance.transform.position = RoseMovement.instance.transform.position;
     }
 }

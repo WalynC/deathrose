@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public static CameraController instance;
+    static CameraController _inst;
+    public static CameraController instance {
+        get
+        {
+            if (_inst == null) _inst = FindObjectOfType<CameraController>();
+            return _inst;
+        }
+    }
     public static Camera cam;
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
-        instance = this;   
+        _inst = this;   
     }
 }

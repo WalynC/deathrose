@@ -30,6 +30,7 @@ public class GameState : MonoBehaviour
             e.FireAtSeed();
             e.EndFiring();
         }
+        CameraController.instance.transform.position = rose.position;
         seed.position = plantPos;
         daytime = true;
     }
@@ -45,6 +46,7 @@ public class GameState : MonoBehaviour
         }
         EnemyManager.burrowed.Clear();
         RoseMovement.instance.controller.Move(seed.position-rose.position);
+        CameraController.instance.transform.position = RoseMovement.instance.transform.position;
         daytime = false;
     }
 }
