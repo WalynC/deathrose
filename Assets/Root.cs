@@ -20,6 +20,6 @@ public class Root
         distanceFromParentStart = d;
         distance = Vector3.Distance(s, e);
         visual = v;
-        p.children.Add(this);
+        p?.children.Add(this);
     }
 }
