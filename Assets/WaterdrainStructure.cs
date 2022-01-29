@@ -6,10 +6,15 @@ public class WaterdrainStructure : Structure
 {
     public Root parent;
     public List<Water> waters = new List<Water>();
+    int health = 10;
 
     public override void DealDamage(Vector3 vec)
     {
-        if (obj.activeInHierarchy) Destroy();
+        if (obj.activeInHierarchy)
+        {
+            health--;
+            if (health <= 0) Destroy();
+        }
     }
 
     public override void Destroy()
