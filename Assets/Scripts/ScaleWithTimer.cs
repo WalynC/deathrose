@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ScaleWithTimer : MonoBehaviour
 {
-    public RectTransform rt;
+    public RectTransform rt, rt2;
 
     public void UpdateScale(float scale)
     {
-        rt.anchorMin = new Vector2(1-scale, rt.anchorMin.y);
+        rt.anchorMax = new Vector2(1 - scale, rt.anchorMax.y);
+        rt2.anchorMin = new Vector2(1 - scale, rt2.anchorMin.y);
 
     }
 }
