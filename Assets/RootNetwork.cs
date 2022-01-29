@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class RootNetwork : MonoBehaviour
 {
-    public static RootNetwork instance;
+    static RootNetwork _inst;
+    public static RootNetwork instance {
+        get
+        {
+            if (_inst == null) _inst = FindObjectOfType<RootNetwork>();
+            return _inst;
+        }
+    }
     
     public GameObject prefab;
     public List<Root> roots = new List<Root>();
 
     private void Start()
     {
-        instance = this;
+        _inst = this;
     }
 
     public GameObject CreateObject()

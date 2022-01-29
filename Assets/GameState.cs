@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         instance = this;
+        DaytimeBegin();
     }
 
     public void DaytimeBegin()
