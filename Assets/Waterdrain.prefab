@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2876162940690463290}
   - component: {fileID: 2876162940690463293}
   - component: {fileID: 2876162940690463292}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Waterdrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7008531958982664202}
   - component: {fileID: 1636851921084888524}
   - component: {fileID: 2405834865028507654}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: aoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}

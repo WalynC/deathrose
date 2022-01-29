@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 141200359}
   - component: {fileID: 141200360}
   - component: {fileID: 141200361}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: roseBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 506881311}
   - component: {fileID: 506881310}
   - component: {fileID: 506881309}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
