@@ -9,6 +9,11 @@ public class DaytimeControl : MonoBehaviour
     int index;
     public Building currentBuilding;
 
+    private void OnDisable()
+    {
+        currentBuilding.Disable();
+    }
+
     private void Update()
     {
         currentBuilding.Preview();
