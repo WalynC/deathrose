@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static EnemyManager instance;
+    static EnemyManager _inst;
+    public static EnemyManager instance
+    {
+        get
+        {
+            if (_inst == null) _inst = FindObjectOfType<EnemyManager>();
+            return _inst;
+        }
+    }
     public BulletPool pool;
     int currentWave = 0;
     public static List<Enemy> burrowed = new List<Enemy>();
     public static List<Enemy> unburrowed = new List<Enemy>();
-
-    void Start()
-    {
-        instance = this;
-    }
 
     public void Deploy()
     {
