@@ -5,10 +5,24 @@ using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
-    public TextMeshProUGUI money;
+    public static PlayerUI instance;
+
+    public TextMeshProUGUI money, moneyPreview;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     public void UpdateMoneyCounter(int count)
     {
         money.text = count.ToString();
+    }
+
+    public void UpdateCostPreview(bool active)
+    {
+        moneyPreview.gameObject.SetActive(active);
+        moneyPreview.transform.position = Input.mousePosition;
+        moneyPreview.text = PlantRoot.instance.previewPrice.ToString();
     }
 }

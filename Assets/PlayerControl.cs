@@ -40,6 +40,7 @@ public class PlayerControl : MonoBehaviour
             PlantRoot.instance.preview.gameObject.SetActive(false);
             PlantRoot.instance.previewPrice = int.MaxValue;
         }
+        PlayerUI.instance.UpdateCostPreview(PlantRoot.instance.preview.gameObject.activeInHierarchy);
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
