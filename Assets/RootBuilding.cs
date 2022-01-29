@@ -58,6 +58,8 @@ public class RootBuilding : Building
 
     public override void Disable()
     {
+        preview.gameObject.SetActive(false);
+        PlayerUI.instance.UpdateCostPreview(preview.gameObject.activeInHierarchy, price);
         base.Disable();
     }
 }
