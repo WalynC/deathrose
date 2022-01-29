@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class PlantRoot : MonoBehaviour
 {
+    public static PlantRoot instance;
+    
     public GameObject prefab;
     public List<Root> roots = new List<Root>();
     public MeshRenderer preview;
     public int previewPrice = 0;
     public Vector3 previewStart;
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     public GameObject CreateObject()
     {

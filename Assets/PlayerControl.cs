@@ -6,7 +6,6 @@ public class PlayerControl : MonoBehaviour
 {
     Camera cam;
     public LayerMask ground, roots, wall;
-    public PlantRoot plRt;
     public Material canAfford, noAfford;
 
     private void Start()
@@ -19,27 +18,27 @@ public class PlayerControl : MonoBehaviour
         RaycastHit groundHit;
         if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out groundHit, Mathf.Infinity, ground))
         {
-            plRt.UpdatePreview(groundHit.point);
-            plRt.preview.gameObject.SetActive(true);
+            PlantRoot.instance.UpdatePreview(groundHit.point);
+            PlantRoot.instance.preview.gameObject.SetActive(true);
             bool collision = Physics.Raycast(groundHit.point, 
-                plRt.previewStart - groundHit.point, 
-                plRt.preview.transform.localScale.x, 
+                PlantRoot.instance.previewStart - groundHit.point, 
+                PlantRoot.instance.preview.transform.localScale.x, 
                 wall);
-            if (PlayerMoney.instance.CanAfford(plRt.previewPrice) && plRt.previewPrice > 10 && !collision)
+            if (PlayerMoney.instance.CanAfford(PlantRoot.instance.previewPrice) && PlantRoot.instance.previewPrice > 10 && !collision)
             {
-                plRt.preview.material = canAfford;
+                PlantRoot.instance.preview.material = canAfford;
                 if (Input.GetMouseButtonDown(0)) //plant root
                 {
-                    plRt.CreateNewRoot(groundHit.point);
+                    PlantRoot.instance.CreateNewRoot(groundHit.point);
                 }
             } else
             {
-                plRt.preview.material = noAfford;
+                PlantRoot.instance.preview.material = noAfford;
             }
         } else
         {
-            plRt.preview.gameObject.SetActive(false);
-            plRt.previewPrice = int.MaxValue;
+            PlantRoot.instance.preview.gameObject.SetActive(false);
+            PlantRoot.instance.previewPrice = int.MaxValue;
         }
         if (Input.GetMouseButtonDown(1))
         {
