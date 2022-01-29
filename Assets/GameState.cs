@@ -9,6 +9,8 @@ public class GameState : MonoBehaviour
     public GameObject day, night;
     public Transform seed, rose;
 
+    public bool daytime = true;
+
     private void Start()
     {
         instance = this;
@@ -23,6 +25,7 @@ public class GameState : MonoBehaviour
         Vector3 plantPos = RootNetwork.instance.GetClosestRootPoint(rose.position);
         if (Vector3.Distance(plantPos, rose.position) > 5f) Debug.Log("you lose");
         seed.position = plantPos;
+        daytime = true;
     }
 
     public void NighttimeBegin()
@@ -30,5 +33,6 @@ public class GameState : MonoBehaviour
         day.SetActive(false);
         night.SetActive(true);
         RoseMovement.instance.controller.Move(seed.position-rose.position);
+        daytime = false;
     }
 }
