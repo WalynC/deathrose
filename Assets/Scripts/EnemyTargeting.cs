@@ -46,5 +46,13 @@ public class EnemyTargeting : MonoBehaviour
             bull.Setup(root, hitPt, EnemyManager.instance.pool);
             return;
         }
+        //settle for shooting the player
+        if (Vector3.Distance(transform.position, RoseMovement.instance.transform.position) <= maxDist)
+        {
+            GameObject obj = EnemyManager.instance.pool.GetObject();
+            Bullet bull = obj.GetComponent<Bullet>();
+            obj.transform.position = transform.position;
+            bull.Setup(null, RoseMovement.instance.transform.position, EnemyManager.instance.pool);
+        }
     }
 }
