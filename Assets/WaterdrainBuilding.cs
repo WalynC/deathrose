@@ -14,6 +14,7 @@ public class WaterdrainBuilding : Building
 
     public override void Build()
     {
+        if (!buildable) return;
         GameObject obj = Instantiate(prefab);
         obj.transform.position = position;
         WaterdrainStructure struc = new WaterdrainStructure();
@@ -37,6 +38,7 @@ public class WaterdrainBuilding : Building
             preview.transform.position = position;
             if (PlayerMoney.instance.CanAfford(price))
             {
+                buildable = true;
                 preview.material = canAfford;
                 Collider[] colliders = Physics.OverlapSphere(position, radius, water);
                 foreach (Collider c in colliders)
