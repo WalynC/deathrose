@@ -8,4 +8,5 @@ public abstract class Structure
 
     public abstract void Update();
     public abstract void Destroy();
+    public abstract void Setup();
 }
