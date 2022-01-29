@@ -39,7 +39,7 @@ public class RootBuilding : Building
             position = groundHit.point;
             UpdatePreview(position);
             preview.gameObject.SetActive(true);
-            bool collision = Physics.Raycast(position, previewStart - position, preview.transform.localScale.x, wall);
+            bool collision = Physics.Raycast(previewStart, position - previewStart, preview.transform.localScale.x, wall);
             if (PlayerMoney.instance.CanAfford(price) && price > 10 && !collision)
             {
                 buildable = true;
