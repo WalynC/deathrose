@@ -12,7 +12,7 @@ public class Water : MonoBehaviour
         curCapacity = capacity;
     }
 
-    public void Drain(int amount)
+    public bool Drain(int amount)
     {
         int reward = amount;
         curCapacity -= amount;
@@ -20,5 +20,6 @@ public class Water : MonoBehaviour
         if (drained) reward += curCapacity;
         PlayerMoney.instance.ChangeMoneyCount(reward);
         if (drained) Destroy(gameObject);
+        return drained;
     }
 }
