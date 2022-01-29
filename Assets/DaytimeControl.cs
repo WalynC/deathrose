@@ -45,9 +45,5 @@ public class DaytimeControl : MonoBehaviour
             currentBuilding = buildContainer.GetChild(index).GetComponent<Building>();
             PlayerUI.instance.UpdateBuildingName(currentBuilding.name);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameState.instance.NighttimeBegin();
-        }
     }
 }
