@@ -42,6 +42,9 @@ public class GameState : MonoBehaviour
         foreach (Enemy e in EnemyManager.burrowed)
         {
             e.EndBurrow();
+        }
+        foreach (Enemy e in EnemyManager.unburrowed)
+        {
             e.BeginFiring();
         }
         EnemyManager.burrowed.Clear();

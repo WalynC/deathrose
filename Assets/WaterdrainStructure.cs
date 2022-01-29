@@ -7,10 +7,16 @@ public class WaterdrainStructure : Structure
     public Root parent;
     public List<Water> waters = new List<Water>();
 
+    public override void DealDamage(Vector3 vec)
+    {
+        if (obj.activeInHierarchy) Destroy();
+    }
+
     public override void Destroy()
     {
         parent?.structures.Remove(this);
         structures.Remove(this);
+        obj.SetActive(false);
     }
 
     public override void Setup()

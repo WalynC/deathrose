@@ -51,13 +51,14 @@ public class RootNetwork : MonoBehaviour
         return start;
     }
 
-    public Vector3 GetClosestRootPoint(Vector3 end, out Root root)
+    public Vector3 GetClosestRootPoint(Vector3 end, out Root root, bool vulnerableOnly = false)
     {
         Vector3 start = Vector3.zero;
         float dist = end.magnitude;
         root = null;
         for (int i = 0; i < roots.Count; ++i)
         {
+            if (vulnerableOnly && (roots[i].children.Count > 0 || roots[i].structures.Count > 0)) continue;
             Vector3 challenge = ClosestPointOnLineSegment(roots[i].start, roots[i].end, end);
             float challengeDist = Vector3.Distance(challenge, end);
             if (challengeDist < dist)

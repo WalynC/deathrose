@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager instance;
+    public BulletPool pool;
     int currentWave = 0;
     public static List<Enemy> burrowed = new List<Enemy>();
     public static List<Enemy> unburrowed = new List<Enemy>();
