@@ -12,7 +12,7 @@ public class RootBuilding : Building
     public override void Build()
     {
         if (!buildable) return;
-        PlantRoot.instance.CreateNewRoot(position);
+        RootNetwork.instance.CreateNewRoot(position);
         PlayerMoney.instance.ChangeMoneyCount(-price);
     }
 
@@ -25,7 +25,7 @@ public class RootBuilding : Building
 
     public void UpdatePreview(Vector3 end)
     {
-        previewStart = PlantRoot.instance.GetClosestRootPoint(end);
+        previewStart = RootNetwork.instance.GetClosestRootPoint(end);
         PositionObject(preview.gameObject, previewStart, end);
         price = (int)(Vector3.Distance(previewStart, end) * 10);
     }
