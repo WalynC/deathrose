@@ -36,6 +36,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        HitEffect eff = other.GetComponent<HitEffect>();
+        eff?.Hit();
         pool.ReturnObject(gameObject);
         gameObject.SetActive(false);
         target = null;

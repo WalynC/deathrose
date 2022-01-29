@@ -8,6 +8,12 @@ public class RoseMovement : MonoBehaviour
 
     public NightControl input;
     public CharacterController controller;
+    public float hitByBulletTimer;
+
+    public void Hit()
+    {
+        hitByBulletTimer = 1f;
+    }
 
     private void Start()
     {
@@ -16,6 +22,9 @@ public class RoseMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        controller.Move(new Vector3(input.lateral.x, 0, input.lateral.y) * 10f * Time.deltaTime);
+        float speed = 10f;
+        if (hitByBulletTimer > 0f) speed /= 2f;
+        hitByBulletTimer -= Time.deltaTime;
+        controller.Move(new Vector3(input.lateral.x, 0, input.lateral.y) * speed * Time.deltaTime);
     }
 }

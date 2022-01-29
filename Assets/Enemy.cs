@@ -6,6 +6,14 @@ public class Enemy : MonoBehaviour
 {
     public GameObject burrow, physical, firing;
 
+    public void Hit()
+    {
+        EnemyManager.instance.EnemyDefeated(this);
+        burrow.SetActive(false);
+        physical.SetActive(false);
+        firing.SetActive(false);
+    }
+
     public void BeginBurrow()
     {
         burrow.SetActive(true);
