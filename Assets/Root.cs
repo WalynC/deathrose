@@ -6,6 +6,7 @@ public class Root
 {
     Root parent;
     List<Root> children = new List<Root>();
+    List<Structure> structures = new List<Structure>();
     float distanceFromParentStart;
     public float distance;
     public Vector3 start, end;
