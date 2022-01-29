@@ -5,8 +5,8 @@ using UnityEngine;
 public class Root
 {
     Root parent;
-    List<Root> children = new List<Root>();
     List<Structure> structures = new List<Structure>();
+    public List<Root> children = new List<Root>();
     float distanceFromParentStart;
     public float distance;
     public Vector3 start, end;
@@ -20,5 +20,6 @@ public class Root
         distanceFromParentStart = d;
         distance = Vector3.Distance(s, e);
         visual = v;
+        p.children.Add(this);
     }
 }
