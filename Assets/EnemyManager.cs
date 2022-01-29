@@ -34,9 +34,9 @@ public class EnemyManager : MonoBehaviour
     public void EnemyDefeated(Enemy e)
     {
         unburrowed.Remove(e);
-        if (currentWave == transform.childCount && unburrowed.Count == 0)
+        if (currentWave == transform.childCount && burrowed.Count == 0 && unburrowed.Count == 0)
         {
-            Debug.Log("you win");
+            GameState.instance.Win();
         }
     }
 }
