@@ -36,7 +36,7 @@ public class WaterdrainBuilding : Building
             position = RootNetwork.instance.GetClosestRootPoint(rootHit.point, out root);
             preview.gameObject.SetActive(root != null);
             preview.transform.position = position;
-            if (PlayerMoney.instance.CanAfford(price))
+            if (PlayerMoney.instance.CanAfford(price) && Structure.EnoughRoom(position))
             {
                 buildable = true;
                 preview.material = canAfford;
