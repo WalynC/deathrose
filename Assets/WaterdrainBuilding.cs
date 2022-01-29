@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaterdrainBuilding : Building
 {
+    public LayerMask root;
+
     public override void Build()
     {
         Debug.Log("build");
@@ -11,6 +13,11 @@ public class WaterdrainBuilding : Building
 
     public override void Preview()
     {
-        Debug.Log("preview");
+        buildable = false;
+        RaycastHit rootHit;
+        if (Physics.Raycast(CameraController.cam.ScreenPointToRay(Input.mousePosition), out rootHit, Mathf.Infinity, root))
+        {
+            position = RootNetwork.instance.GetClosestRootPoint(rootHit.point);
+        }
     }
 }
