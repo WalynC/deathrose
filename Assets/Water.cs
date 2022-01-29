@@ -19,7 +19,7 @@ public class Water : MonoBehaviour
         bool drained = curCapacity <= 0;
         if (drained) reward += curCapacity;
         PlayerMoney.instance.ChangeMoneyCount(reward);
-        if (drained) Destroy(gameObject);
+        if (drained) gameObject.SetActive(false);
         return drained;
     }
 }
