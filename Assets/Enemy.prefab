@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 307471613798864322}
   - component: {fileID: 4514397621592134614}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FireControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3245876841025407615}
   - component: {fileID: 7663727425703726984}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 3245876842220379869}
   - component: {fileID: 3245876842220379870}
   - component: {fileID: 3245876842220379871}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
