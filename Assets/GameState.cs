@@ -24,6 +24,12 @@ public class GameState : MonoBehaviour
         night.SetActive(false);
         Vector3 plantPos = RootNetwork.instance.GetClosestRootPoint(rose.position);
         if (Vector3.Distance(plantPos, rose.position) > 5f) Debug.Log("you lose");
+        EnemyManager.instance.Deploy();
+        foreach (Enemy e in EnemyManager.unburrowed)
+        {
+            e.FireAtSeed();
+            e.EndFiring();
+        }
         seed.position = plantPos;
         daytime = true;
     }
@@ -32,6 +38,12 @@ public class GameState : MonoBehaviour
     {
         day.SetActive(false);
         night.SetActive(true);
+        foreach (Enemy e in EnemyManager.burrowed)
+        {
+            e.EndBurrow();
+            e.BeginFiring();
+        }
+        EnemyManager.burrowed.Clear();
         RoseMovement.instance.controller.Move(seed.position-rose.position);
         daytime = false;
     }
