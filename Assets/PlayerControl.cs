@@ -40,5 +40,9 @@ public class PlayerControl : MonoBehaviour
             currentBuilding = buildContainer.GetChild(index).GetComponent<Building>();
             PlayerUI.instance.UpdateBuildingName(currentBuilding.name);
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach (Structure str in Structure.structures) str.Update();
+        }
     }
 }
