@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LoseCanvas : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static LoseCanvas instance;
+    public TextMeshProUGUI text;
+
     void Start()
     {
-        
+        instance = this;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void ChangeText(string str)
     {
-        
+        text.text = str;
     }
 }

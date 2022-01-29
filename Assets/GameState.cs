@@ -26,21 +26,22 @@ public class GameState : MonoBehaviour
         day.SetActive(true);
         night.SetActive(false);
         Vector3 plantPos = RootNetwork.instance.GetClosestRootPoint(rose.position);
-        if (Vector3.Distance(plantPos, rose.position) > 5f) Lose();
+        if (Vector3.Distance(plantPos, rose.position) > 5f) Lose("The rose was too far away from its roots when the sun rose, and withered away");
         EnemyManager.instance.Deploy();
         foreach (Enemy e in EnemyManager.unburrowed)
         {
             seedHealth--;
             e.EndFiring();
         }
-        if (seedHealth <= 0) Lose();
+        if (seedHealth <= 0) Lose("The robots have destroyed the rose's seed");
         CameraController.instance.transform.position = rose.position;
         seed.position = plantPos;
         daytime = true;
     }
 
-    public void Lose()
+    public void Lose(string str)
     {
+        LoseCanvas.instance.ChangeText(str);
         day.SetActive(false);
         night.SetActive(false);
         lose.SetActive(true);
