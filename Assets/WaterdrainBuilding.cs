@@ -21,6 +21,7 @@ public class WaterdrainBuilding : Building
         struc.parent = root;
         struc.obj = obj;
         struc.Setup();
+        PlayerMoney.instance.ChangeMoneyCount(-price);
     }
 
     public override void Preview()
