@@ -9,7 +9,7 @@ public class GameState : MonoBehaviour
     public GameObject day, night;
     public Transform seed, rose;
 
-    public bool daytime = true;
+    public static bool daytime = true;
 
     private void Start()
     {
