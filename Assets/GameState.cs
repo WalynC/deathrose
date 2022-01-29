@@ -9,6 +9,11 @@ public class GameState : MonoBehaviour
     public GameObject day, night;
     public Transform seed, rose;
 
+    private void Start()
+    {
+        instance = this;
+    }
+
     public void DaytimeBegin()
     {
         foreach (Structure str in Structure.structures) str.Update();
