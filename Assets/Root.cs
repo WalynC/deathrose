@@ -5,8 +5,8 @@ using UnityEngine;
 public class Root
 {
     Root parent;
-    List<Structure> structures = new List<Structure>();
     public List<Root> children = new List<Root>();
+    public List<Structure> structures = new List<Structure>();
     float distanceFromParentStart;
     public float distance;
     public Vector3 start, end;
