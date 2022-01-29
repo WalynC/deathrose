@@ -1358,11 +1358,16 @@ MonoBehaviour:
   buildable: 0
   price: 100
   position: {x: 0, y: 0, z: 0}
-  root:
+  rootLayer:
     serializedVersion: 2
     m_Bits: 512
+  water:
+    serializedVersion: 2
+    m_Bits: 16
   preview: {fileID: 514656795}
+  prefab: {fileID: 2876162940690463295, guid: c0bf63dc780e9ee40a003bc44698ab2f, type: 3}
   canAfford: {fileID: 2100000, guid: ed2a5c7178c825448b4fb84d286bf63c, type: 2}
+  noWater: {fileID: 2100000, guid: 5f34e872e3ab6d642a0d1f8ff283a308, type: 2}
   noAfford: {fileID: 2100000, guid: 9a083744a17805248bb2764e08f48040, type: 2}
 --- !u!1 &963194225
 GameObject:
