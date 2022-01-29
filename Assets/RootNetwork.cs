@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantRoot : MonoBehaviour
+public class RootNetwork : MonoBehaviour
 {
-    public static PlantRoot instance;
+    public static RootNetwork instance;
     
     public GameObject prefab;
     public List<Root> roots = new List<Root>();
-    public MeshRenderer preview;
-    public int previewPrice = 0;
-    public Vector3 previewStart;
 
     private void Start()
     {
@@ -28,13 +25,6 @@ public class PlantRoot : MonoBehaviour
         obj.transform.position = (start + end) / 2;
         obj.transform.right = end - start;
         obj.transform.localScale = new Vector3(Vector3.Distance(start, end), 1, 1);
-    }
-
-    public void UpdatePreview(Vector3 end)
-    {
-        previewStart = GetClosestRootPoint(end);
-        PositionObject(preview.gameObject, previewStart, end);
-        previewPrice = (int)(Vector3.Distance(previewStart, end) * 10);
     }
 
     public Vector3 GetClosestRootPoint(Vector3 end)
@@ -76,7 +66,6 @@ public class PlantRoot : MonoBehaviour
         float distAlong = parent != null ? dist / parent.distance : 0;
         Root root = new Root(start, end, parent, distAlong, visual);
         roots.Add(root);
-        PlayerMoney.instance.ChangeMoneyCount(-previewPrice);
     }
 
     //found on https://stackoverflow.com/questions/3120357/get-closest-point-to-a-line
